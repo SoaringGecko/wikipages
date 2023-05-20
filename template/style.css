@@ -1,0 +1,294 @@
+#fCustomLinkL,
+#fCustomLinkLMod,
+#fCustomLinkZZL,
+#mainGame,
+#modzz,
+.queryInput,
+.queryInput.fandom,
+.queryInput.gg {
+    display: none
+}
+
+label {
+    float: left
+}
+
+input[type=checkbox],
+input[type=radio],
+label {
+    cursor: pointer
+}
+
+input[type=checkbox],
+input[type=radio] {
+    accent-color: #b37400;
+    accent-color: rgb(255, 193, 79)
+}
+
+input[type=text] {
+    width: 202px;
+    border-color: #c98200
+}
+
+:disabled,
+:disabled+label {
+    cursor: not-allowed!important
+}
+
+fieldset {
+    border-color: #a9a9a9;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content
+}
+
+.queryInput {
+    height: auto;
+    width: auto;
+    cursor: default;
+    position: absolute;
+    background-color: #232e57;
+    -webkit-border-radius: 0px 7px 7px 0px;
+    -moz-border-radius: 0 7px 7px 0;
+    border-radius: 0 7px 7px 0;
+    padding: 1px 6px 1px 1px;
+    margin-left: 12px;
+    margin-top: .7px
+}
+
+.queryInput::before {
+    content: "";
+    position: absolute;
+    margin: -1px -11px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10.5px 10px 10px 0;
+    border-color: transparent #232e57 transparent transparent;
+    line-height: 0
+}
+
+.github::after {
+    content: url('github.svg');
+    width: 30px;
+    display: inline-block;
+}
+
+html {
+    color-scheme: dark!important
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    border-color: #736b5e;
+    color: #e8e6e3;
+    background-color: #13151f
+}
+
+a {
+    color: #3391ff
+}
+
+table {
+    border-color: #434c70
+}
+
+::-webkit-input-placeholder {
+    color: #b2aba1;
+    opacity: .5!important
+}
+
+:-moz-placeholder {
+    color: #b2aba1;
+    opacity: .5!important
+}
+
+::-moz-placeholder {
+    color: #b2aba1;
+    opacity: .5!important
+}
+
+::-ms-input-placeholder {
+    color: #b2aba1;
+    opacity: .5!important
+}
+
+::placeholder {
+    color: #b2aba1;
+    opacity: .5!important
+}
+
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
+    background-color: #595f00!important;
+    color: #e8e6e3!important
+}
+
+::-webkit-scrollbar {
+    background-color: #292f45;
+    color: #aba499
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3d4667
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #475177
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #394160
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #252a3e
+}
+
+* {
+    scrollbar-color: #3d4667 #292f45
+}
+
+::selection {
+    background-color: #004daa!important;
+    color: #e8e6e3!important
+}
+
+::-moz-selection {
+    background-color: #004daa!important;
+    color: #e8e6e3!important
+}
+
+#bit-notification-bar-iframe,
+.captcheck_answer_label>input+img,
+.jfk-bubble.gtx-bubble,
+::-webkit-calendar-picker-indicator,
+span#closed_text>img[src^="https://www.gstatic.com/images/branding/googlelogo"],
+span[data-href^="https://www.hcaptcha.com/"]>#icon {
+    -webkit-filter: invert(100%) hue-rotate(180deg) contrast(90%)!important;
+    filter: invert(100%) hue-rotate(180deg) contrast(90%)!important
+}
+
+:root {
+    --neutral-background: #1e2232;
+    --neutral-text: #d8d4cf;
+    --selection-background: #004daa;
+    --selection-text: #e8e6e3
+}
+
+:disabled+label {
+    color: #988f81
+}
+
+.queryInput {
+    color: #ff724e
+}
+
+.pln {
+    color: #e8e6e3
+}
+
+.atv,
+.str {
+    color: #6dff6d
+}
+
+.kwd,
+.tag {
+    color: #7aabff
+}
+
+.com {
+    color: #ff6d6d
+}
+
+.atn,
+.dec,
+.typ,
+.var {
+    color: #ff85ff
+}
+
+.lit {
+    color: #85ffff
+}
+
+.clo,
+.opn,
+.pun {
+    color: #ffff85
+}
+
+.fun {
+    color: #ff1a1a
+}
+
+pre.prettyprint {
+    border-color: #414a6d;
+    border: solid 1px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content
+}
+
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+    background-color: #2a3047;
+    background-image: none
+}
+
+.vimvixen-hint {
+    background-color: #7b5300!important;
+    border-color: #d8b013!important;
+    color: #f3e8c8!important
+}
+
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--neutral-text)!important
+}
+
+gr-main-header {
+    background-color: #0f3a48!important
+}
+
+.tou-1b6i2ox,
+.tou-lnqlqk,
+.tou-mignzq,
+.tou-z65h9k {
+    background-color: var(--neutral-background)!important
+}
+
+.tou-75mvi {
+    background-color: #032029!important
+}
+
+.tou-17ezmgn,
+.tou-1b8t2us,
+.tou-1frrtv8,
+.tou-1lpmd9d,
+.tou-1w3fhi0,
+.tou-py7lfi,
+.tou-ta9e87 {
+    background-color: #0a0a0a!important
+}
+
+.tou-uknfeu {
+    background-color: #231603!important
+}
+
+.tou-6i3zyv {
+    background-color: #19576c!important
+}
+
+embed[type="application/pdf"] {
+    -webkit-filter: invert(100%) contrast(90%);
+    filter: invert(100%) contrast(90%)
+}

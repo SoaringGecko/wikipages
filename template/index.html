@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Add a wiki - Wiki Pages</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script> -->
+</head>
+
+<body onload="typeInput('');typeInput('ZZ');checkCheck();typeInputLogo('');typeInputLogo('ZZ');typeInputName();searchTerms('');searchTerms('ZZ');typeInputCustom('');typeInputCustom('ZZ')">
+    <p>
+        <a href="../" style="color:#ffa600">Back to wikis (main page)</a>
+        <a href="https://github.com/SoaringGecko/wikipages" style="color:#ffa600" class="github"></a>
+    </p>
+    <form action="">
+        <label for="isModCheck" onselectstart="return false" ondragstart="return false">Wiki is for a mod: </label><input type="checkbox" name="isMod" id="isModCheck" onclick="checkCheck('')"><br>
+        <input type="checkbox" name="gameExist" id="gameExistCheck" onclick="checkCheck('')" disabled><label for="gameExistCheck" onselectstart="return false" ondragstart="return false">The game the mod is for is not on the site: </label><br>
+        <div id="mainGame">
+            <fieldset>
+                <legend>Main Game (Game the mod is for)</legend>
+                <label for="homePageZZ">Link to wiki's homepage: </label><input type="text" name="wikiHomeZZ" id="homePageZZ" placeholder="https://payday.fandom.com/wiki/Payday_Wiki"><span class="queryInput wikiHomeZZ" onselectstart="return false" ondragstart="return false"> The wiki needs a home</span><br>
+                <input type="text" name="gameName" id="gameNameTxt" placeholder="Terraria" disabled><label for="gameNameTxt">Name of the game: </label><span class="queryInput nameTxt" onselectstart="return false" ondragstart="return false"> The game needs a name</span><br>
+                <label for="homePageImgZZ">Wiki logo: </label><input type="text" name="wikiHomeImgZZ" id="homePageImgZZ" placeholder="https://static.wikia.nocookie.net/payday/images/3/3d/PDWikiHeader.png/revision/latest?cb=20180119204350"><span class="queryInput wikiHomeImgZZ"
+                    onselectstart="return false" ondragstart="return false"> Don't leave it faceless &colon;&lpar;</span><br>
+                <fieldset>
+                    <legend>Search Link (Query Link)</legend>
+                    <label for="isFandomZZ" onselectstart="return false" ondragstart="return false">Fandom: </label><input type="radio" name="fandomRadioZZ" id="isFandomZZ" onclick="document.getElementById('isNotFandomLinkZZ').disabled = true;typeInput('ZZ')"
+                        checked="checked"> <input type="text" name="fandomLinkZZ" id="isFandomLinkZZ" value="https://splitmod.fandom.com/wiki/Special:Search" disabled><span class="queryInput fandomZZ" onselectstart="return false" ondragstart="return false"> Not a Fandom link</span><br>
+                    <label for="isGGZZ" onselectstart="return false" ondragstart="return false">wiki.gg: </label><input type="radio" name="fandomRadioZZ" id="isGGZZ" onclick="document.getElementById('isNotFandomLinkZZ').disabled = true;typeInput('ZZ')">
+                    <input type="text" name="fandomLinkZZ" id="isGGLinkZZ" value="https://terraria.wiki.gg/index.php" disabled><span class="queryInput ggZZ" onselectstart="return false" ondragstart="return false"> Not a wiki.gg link</span><br>
+                    <label for="notFandomZZ" onselectstart="return false" ondragstart="return false">Custom: </label><input type="radio" name="fandomRadioZZ" id="notFandomZZ" onclick="document.getElementById('isNotFandomLinkZZ').disabled = false;typeInput('ZZ')">
+                    <input type="text" name="fandomLinkZZ" id="isNotFandomLinkZZ" disabled><span class="queryInput NotFandomZZ" onselectstart="return false" ondragstart="return false"> Not a link (needs http or https)</span>
+                </fieldset>
+                <label for="searchTermsZZ">Search terms: </label><input type="text" name="searchTermsZZ" id="searchTermsZZ" placeholder="payday, pay day, payday2, payday 2, pay day 2, pay day2,"><span class="queryInput searchTermsZZ" onselectstart="return false"
+                    ondragstart="return false">Used to search through the different wiki's on the main page. Put commas after each entry (including the last one)</span><br>
+                <label for="customLinkZZ" onselectstart="return false" ondragstart="return false">Custom link: </label><input type="checkbox" name="customLinkZZ" id="customLinkZZ" onclick="checkCheck('ZZ')">
+                <input type="text" name="customLinkZZ" id="isCustomLinkZZ" placeholder="https://terraria.wiki.gg/wiki/Guide:Class_setups" disabled><span class="queryInput customLinkZZ" onselectstart="return false" ondragstart="return false"> Not a link (needs http or https)</span><br>
+                <input type="text" name="customLinkTextZZ" id="isCustomLinkTextZZ" placeholder="Class Setup" disabled><label for="isCustomLinkTextZZ" onselectstart="return false" ondragstart="return false">Custom link text: </label><span class="queryInput customLinkTextZZ"
+                    onselectstart="return false" ondragstart="return false"> Needs some kind of label (When left blank defaults to &quot;Class Setup&quot;)</span>
+            </fieldset>
+            <br></div>
+        <label for="homePage">Link to <span id="homePageGM">game</span> wiki's homepage: </label><input type="text" name="wikiHome" id="homePage" placeholder="https://payday.fandom.com/wiki/Payday_Wiki"><span class="queryInput wikiHome" onselectstart="return false"
+            ondragstart="return false"> The wiki needs a home</span><br>
+        <label for="homePageImg">Wiki logo: </label><input type="text" name="wikiHomeImg" id="homePageImg" placeholder="https://static.wikia.nocookie.net/payday/images/3/3d/PDWikiHeader.png/revision/latest?cb=20180119204350"><span class="queryInput wikiHomeImg"
+            onselectstart="return false" ondragstart="return false"> Don't leave it faceless &colon;&lpar;</span><br>
+        <fieldset>
+            <legend>Search Link (Query Link)</legend>
+            <label for="isFandom" onselectstart="return false" ondragstart="return false">Fandom: </label><input type="radio" name="fandomRadio" id="isFandom" onclick="document.getElementById('isNotFandomLink').disabled = true;typeInput('')" checked="checked">            <input type="text" name="fandomLink" id="isFandomLink" value="https://splitmod.fandom.com/wiki/Special:Search" disabled><span class="queryInput fandom" onselectstart="return false" ondragstart="return false"> Not a Fandom link</span><br>
+            <label for="isGG" onselectstart="return false" ondragstart="return false">wiki.gg: </label><input type="radio" name="fandomRadio" id="isGG" onclick="document.getElementById('isNotFandomLink').disabled = true;typeInput('')"> <input type="text"
+                name="fandomLink" id="isGGLink" value="https://terraria.wiki.gg/index.php" disabled><span class="queryInput gg" onselectstart="return false" ondragstart="return false"> Not a wiki.gg link</span><br>
+            <label for="notFandom" onselectstart="return false" ondragstart="return false">Custom: </label><input type="radio" name="fandomRadio" id="notFandom" onclick="document.getElementById('isNotFandomLink').disabled = false;typeInput('')">
+            <input type="text" name="fandomLink" id="isNotFandomLink" disabled><span class="queryInput NotFandom" onselectstart="return false" ondragstart="return false"> Not a link (needs http or https)</span>
+        </fieldset>
+        <label for="searchTerms">Search terms: </label><input type="text" name="searchTerms" id="searchTerms" placeholder="payday, pay day, payday2, payday 2, pay day 2, pay day2,"><span class="queryInput searchTerms" onselectstart="return false" ondragstart="return false">Used to search through the different wiki's on the main page. Put commas after each entry (including the last one)</span><br>
+        <label for="customLink" onselectstart="return false" ondragstart="return false">Custom link: </label><input type="checkbox" name="customLink" id="customLink" onclick="checkCheck('')">
+        <input type="text" name="customLink" id="isCustomLink" placeholder="https://calamitymod.wiki.gg/wiki/Guide:Class_setups" disabled><span class="queryInput customLink" onselectstart="return false" ondragstart="return false"> Not a link (needs http or https)</span><br>
+        <input type="text" name="customLinkText" id="isCustomLinkText" placeholder="Class Setup" disabled><label for="isCustomLinkText" onselectstart="return false" ondragstart="return false">Custom link text: </label><span class="queryInput customLinkText"
+            onselectstart="return false" ondragstart="return false"> Needs some kind of label (When left blank defaults to &quot;Class Setup&quot;)</span>
+    </form>
+    <p>Click anywhere inside the area below to copy it</p>
+    <pre class="prettyprint" id="copyEl" onclick="copyToClipboard()"><span id="modz" style="display: none;"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="mods">mods-box</span></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;desc&gt;</span><span class="pln"><span id="fSearchTerms">terraria,</span></span><span class="tag">&lt;/desc&gt;</span><span class="pln">
+    </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fHomePage">https://terraria.wiki.gg</span></span><span class="atv">"</span><span class="tag">&gt;&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fHomePageImg">terrariaLogo.png</span></span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">""</span><span class="tag">&gt;&lt;/a&gt;</span><span id="fCustomLinkL" style="display: none;"><span class="pln">
+    </span><span class="tag">&lt;p&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fCustomLink">https://terraria.wiki.gg/wiki/Guide:Class_setups</span></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln"><span id="fCustomLinkText">Class Setup</span></span><span class="tag">&lt;/a&gt;&lt;/p&gt;</span></span><span class="pln">
+    </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"get"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fQueryLink">https://terraria.wiki.gg/index.php</span></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"search"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"search"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"wikiSearch"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></span><span id="modzz" style="display: block;"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"box"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;desc&gt;</span><span class="pln"><span id="fSearchTermsZZ">terraria,</span></span><span class="tag">&lt;/desc&gt;</span><span class="pln">
+    </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fHomePageZZ">https://terraria.wiki.gg</span></span><span class="atv">"</span><span class="tag">&gt;&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fHomePageImgZZ">terrariaLogo.png</span></span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">""</span><span class="tag">&gt;&lt;/a&gt;</span><span id="fCustomLinkZZL" style="display: none;"><span class="pln">
+    </span><span class="tag">&lt;p&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fCustomLinkZZ">https://terraria.wiki.gg/wiki/Guide:Class_setups</span></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln"><span id="fCustomLinkTextZZ">Class Setup</span></span><span class="tag">&lt;/a&gt;&lt;/p&gt;</span></span><span class="pln">
+    </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"get"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fQueryLinkZZ">https://terraria.wiki.gg/index.php</span></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"search"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"search"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"wikiSearch"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mods"</span><span class="tag">&gt;</span><span class="pln">
+        </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mods-text"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">toggleMods</span><span class="pun">(</span><span class="str">'</span><span id="gameNameZZ"></span><span class="str">'</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">onselectstart</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Mods </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"terraria mods-arrow"</span><span class="tag">&gt;</span><span class="pln">▲</span><span class="tag">&lt;/span&gt;&lt;/p&gt;</span><span class="pln">
+        </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mods-content"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"</span><span id="gameNameZZL"></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
+            </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mods-box"</span><span class="tag">&gt;</span><span class="pln">
+            </span><span class="tag">&lt;desc&gt;</span><span class="pln"><span id="fSearchTermsMod">calamity mod, calamitymod,</span></span><span class="tag">&lt;/desc&gt;</span><span class="pln">
+                </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fHomePageMod">https://calamitymod.wiki.gg/wiki/Calamity_Mod_Wiki</span></span><span class="atv">"</span><span class="tag">&gt;&lt;img</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fHomePageImgMod">calamityLogo.png</span></span><span class="atv">"</span><span class="pln"> </span><span class="atn">alt</span><span class="pun">=</span><span class="atv">""</span><span class="tag">&gt;&lt;/a&gt;</span><span id="fCustomLinkModL" style="display: none;"><span class="pln">
+                </span><span class="tag">&lt;p&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fCustomLinkMod">https://calamitymod.wiki.gg/wiki/Guide:Class_setups</span></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln"><span id="fCustomLinkTextMod">Class Setup</span></span><span class="tag">&lt;/a&gt;&lt;/p&gt;</span></span><span class="pln">
+                </span><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">method</span><span class="pun">=</span><span class="atv">"get"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"</span><span class="atv"><span id="fQueryLinkMod">https://calamitymod.wiki.gg/index.php</span></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
+                    </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"search"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"search"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"wikiSearch"</span><span class="tag">&gt;</span><span class="pln">
+                </span><span class="tag">&lt;/form&gt;</span><span class="pln">
+            </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+        </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></span></pre>
+    <script>
+        const f = {};
+        const homePageGM = document.getElementById('homePageGM');
+        const fHomePage = document.getElementById('fHomePage');
+        const fHomePageZZ = document.getElementById('fHomePageZZ');
+        const fCustomLink = document.getElementById('fCustomLink');
+        const fCustomLinkL = document.getElementById('fCustomLinkL');
+        const fCustomLinkZZL = document.getElementById('fCustomLinkZZL');
+        const fCustomLinkZZ = document.getElementById('fCustomLinkZZ');
+        const fCustomLinkMod = document.getElementById('fCustomLinkMod');
+        const fCustomLinkModL = document.getElementById('fCustomLinkModL');
+        const fCustomLinkText = document.getElementById('fCustomLinkText');
+        const fCustomLinkTextZZ = document.getElementById('fCustomLinkTextZZ');
+        const fCustomLinkTextMod = document.getElementById('fCustomLinkTextMod');
+        const isCustomLinkText = document.getElementById('isCustomLinkText');
+        const isCustomLinkTextZZ = document.getElementById('isCustomLinkTextZZ');
+        const fHomePageImg = document.getElementById('fHomePageImg');
+        const fHomePageImgZZ = document.getElementById('fHomePageImgZZ');
+        const fHomePageImgMod = document.getElementById('fHomePageImgMod');
+        const fHomePageMod = document.getElementById('fHomePageMod');
+        const fQueryLink = document.getElementById('fQueryLink');
+        const fQueryLinkZZ = document.getElementById('fQueryLinkZZ');
+        const fQueryLinkMod = document.getElementById('fQueryLinkMod');
+        const fSearchTerms = document.getElementById('fSearchTerms');
+        const fSearchTermsZZ = document.getElementById('fSearchTermsZZ');
+        const fSearchTermsMod = document.getElementById('fSearchTermsMod');
+        const gameNameZZ = document.getElementById('gameNameZZ');
+        const gameNameZZL = document.getElementById('gameNameZZL');
+        const modz = document.getElementById('modz');
+        const modzz = document.getElementById('modzz');
+        const mods = document.getElementById('mods');
+        var gameNameTxtLN = "terraria";
+        var homePageLink = document.getElementById('homePage');
+        var homePageLinkZZ = document.getElementById('homePageZZ');
+        var homePageImg = document.getElementById('homePageImg');
+        var homePageImgZZ = document.getElementById('homePageImgZZ');
+        var gameNameTxt = document.getElementById('gameNameTxt');
+        var queryLink = "https://terraria.wiki.gg/index.php";
+        var queryLinkZZ = "https://terraria.wiki.gg/index.php";
+        var customLink = "https://terraria.wiki.gg/wiki/Guide:Class_setups";
+        var customLinkZZ = "https://terraria.wiki.gg/wiki/Guide:Class_setups";
+
+        $(document).ready(function() {
+            $("#homePage, #isNotFandomLink").on("input", function() {
+                typeInput('');
+            });
+
+            $("#homePageZZ, #isNotFandomLinkZZ").on("input", function() {
+                typeInput('ZZ');
+            });
+
+            $("#gameNameTxt").on("input", function() {
+                typeInputName('');
+            });
+
+            $("#homePageImg").on("input", function() {
+                typeInputLogo('');
+            });
+
+            $("#homePageImgZZ").on("input", function() {
+                typeInputLogo('ZZ');
+            });
+
+            $("#searchTerms").on("input", function() {
+                searchTerms('');
+            });
+
+            $("#searchTermsZZ").on("input", function() {
+                searchTerms('ZZ');
+            });
+
+            $("#isCustomLink").on("input", function() {
+                typeInputCustom('');
+            });
+
+            $("#isCustomLinkZZ").on("input", function() {
+                typeInputCustom('ZZ');
+            });
+
+            $("#isCustomLinkText").on("input", function() {
+                typeInputCustom('');
+            });
+
+            $("#isCustomLinkTextZZ").on("input", function() {
+                typeInputCustom('ZZ');
+            });
+        });
+
+        function typeInput(evel) {
+            if (document.getElementById('homePage' + evel).value == "") {
+                document.getElementById('isFandomLink' + evel).value = "https://splitmod.fandom.com/wiki/Special:Search";
+                document.getElementById('isGGLink' + evel).value = "https://terraria.wiki.gg/index.php";
+                f['queryLink' + evel] = "https://splitmod.fandom.com/wiki/Special:Search";
+                $('.queryInput.wikiHome' + evel).css("display", "inline-block");
+                $('.queryInput.wikiHomeImg' + evel).css("display", "none");
+                $('.queryInput.fandom' + evel).css("display", "none");
+                $('.queryInput.gg' + evel).css("display", "none");
+                $('.queryInput.NotFandom' + evel).css("display", "none");
+                $('.queryInput.searchTerms' + evel).css("display", "none");
+                return false
+            } else {
+                $('.queryInput.wikiHome' + evel).css("display", "none");
+                $('.queryInput.wikiHomeImg' + evel).css("display", "inline-block");
+                $('.queryInput.searchTerms' + evel).css("display", "inline-block");
+            }
+            if ($('#isFandom:checked').length && evel !== "ZZ" || $('#isFandomZZ:checked').length && evel == "ZZ") {
+                $('.queryInput.gg' + evel).css("display", "none");
+                $('.queryInput.NotFandom' + evel).css("display", "none");
+                if (/https:\/\/(.*)\.fandom\.com/gm.test(homePageLink.value || homePageLinkZZ.value)) {
+                    f['queryLink' + evel] = "https://" + document.getElementById('homePage' + evel).value.split(/https:\/\/(.*)\.fandom\.com/gm)[1] + ".fandom.com/wiki/Special:Search";
+                    document.getElementById('isFandomLinkZZ').value = f.queryLinkZZ;
+                    document.getElementById('isFandomLink').value = f.queryLink;
+
+                } else {
+                    $('.queryInput.fandom' + evel).css("display", "inline-block");
+                    document.getElementById('isFandomLink' + evel).value = "https://splitmod.fandom.com/wiki/Special:Search";
+                    f['queryLink' + evel] = "https://splitmod.fandom.com/wiki/Special:Search";
+                    return false
+                }
+                $('.queryInput.fandom' + evel).css("display", "none");
+            } else if ($('#isGG:checked').length && evel !== "ZZ" || $('#isGGZZ:checked').length && evel == "ZZ") {
+                $('.queryInput.fandom' + evel).css("display", "none");
+                $('.queryInput.NotFandom' + evel).css("display", "none");
+                if (/https:\/\/(.*)\.wiki\.gg/gm.test(homePageLink.value || homePageLinkZZ.value)) {
+                    f['queryLink' + evel] = "https://" + document.getElementById('homePage' + evel).value.split(/https:\/\/(.*)\.wiki\.gg/gm)[1] + ".wiki.gg/index.php";
+                    document.getElementById('isGGLinkZZ').value = f.queryLinkZZ;
+                    document.getElementById('isGGLink').value = f.queryLink;
+
+                } else {
+                    $('.queryInput.gg' + evel).css("display", "inline-block");
+                    document.getElementById('isGGLink' + evel).value = "https://terraria.wiki.gg/index.php";
+                    f['queryLink' + evel] = "https://terraria.wiki.gg/index.php";
+                    return false
+                }
+                $('.queryInput.gg' + evel).css("display", "none");
+
+            } else if ($('#notFandom:checked').length && evel !== "ZZ" || $('#notFandomZZ:checked').length && evel == "ZZ") {
+                $('.queryInput.fandom' + evel).css("display", "none");
+                $('.queryInput.gg' + evel).css("display", "none");
+                if (/(https:\/\/.*|http:\/\/.*)/gm.test(document.getElementById('isNotFandomLink' + evel).value)) {
+                    f['queryLink' + evel] = document.getElementById('isNotFandomLink' + evel).value
+                } else {
+                    $('.queryInput.NotFandom' + evel).css("display", "inline-block");
+                    f['queryLink' + evel] = "https://terraria.wiki.gg/index.php";
+                    return false
+                }
+                $('.queryInput.NotFandom' + evel).css("display", "none");
+                // }
+            }
+
+            searchTerms(evel);
+
+            fHomePage.innerHTML = homePageLink.value;
+            fHomePageZZ.innerHTML = homePageLinkZZ.value;
+            fHomePageMod.innerHTML = homePageLink.value;
+            fQueryLink.innerHTML = f.queryLink;
+            fQueryLinkZZ.innerHTML = f.queryLinkZZ;
+            fQueryLinkMod.innerHTML = f.queryLink;
+        }
+
+        function checkCheck() {
+            if ($('#customLink:checked').length) {
+                isCustomLinkText.disabled = false;
+                fCustomLinkL.style.display = "contents";
+                fCustomLinkModL.style.display = "contents";
+                document.getElementById('isCustomLink').disabled = false;
+                if (/(https:\/\/.*|http:\/\/.*)/gm.test(document.getElementById('isCustomLink').value) == false) {
+                    $('.queryInput.customLink').css("display", "inline-block");
+                }
+                if (/.*\S$/gm.test(document.getElementById('isCustomLinkText').value) == false) {
+                    $('.queryInput.customLinkText').css("display", "inline-block");
+                }
+            } else {
+                isCustomLinkText.disabled = true;
+                fCustomLinkL.style.display = "none";
+                fCustomLinkModL.style.display = "none";
+                document.getElementById('isCustomLink').disabled = true;
+                $('.queryInput.customLink').css("display", "none");
+                $('.queryInput.customLinkText').css("display", "none");
+            }
+            if ($('#customLinkZZ:checked').length) {
+                isCustomLinkTextZZ.disabled = false;
+                fCustomLinkZZL.style.display = "contents";
+                document.getElementById('isCustomLinkZZ').disabled = false;
+                if (/(https:\/\/.*|http:\/\/.*)/gm.test(document.getElementById('isCustomLinkZZ').value) == false) {
+                    $('.queryInput.customLinkZZ').css("display", "inline-block");
+                }
+                if (/.*\S$/gm.test(document.getElementById('isCustomLinkTextZZ').value) == false) {
+                    $('.queryInput.customLinkTextZZ').css("display", "inline-block");
+                }
+            } else {
+                isCustomLinkTextZZ.disabled = true;
+                fCustomLinkZZL.style.display = "none";
+                document.getElementById('isCustomLinkZZ').disabled = true;
+                $('.queryInput.customLinkZZ').css("display", "none");
+                $('.queryInput.customLinkTextZZ').css("display", "none");
+            }
+            if ($('#isModCheck:checked').length) {
+                mods.innerHTML = "mods-box";
+                homePageGM.innerHTML = "mod";
+                document.getElementById('gameExistCheck').disabled = false;
+            } else {
+                mods.innerHTML = "box";
+                homePageGM.innerHTML = "game";
+                document.getElementById('gameExistCheck').disabled = true;
+                document.getElementById('gameNameTxt').disabled = true;
+                document.getElementById('mainGame').style.display = "none";
+                modz.style.display = "block";
+                modzz.style.display = "none";
+                return false
+            }
+            if ($('#gameExistCheck:checked').length) {
+                document.getElementById('gameNameTxt').disabled = false;
+                document.getElementById('mainGame').style.display = "block";
+                modz.style.display = "none";
+                modzz.style.display = "block";
+                typeInput('ZZ');
+            } else {
+                document.getElementById('gameNameTxt').disabled = true;
+                document.getElementById('mainGame').style.display = "none";
+                modz.style.display = "block";
+                modzz.style.display = "none";
+            }
+        }
+
+        function typeInputName() {
+            if (/(\s)(\S)/gm.test(gameNameTxt.value)) {
+                let gameNameTxtL = gameNameTxt.value.toLowerCase().split(/(\s)(\S)/gm);
+                let y = 2;
+                while (y <= gameNameTxtL.length) {
+                    gameNameTxtL[y] = gameNameTxtL[y].toUpperCase();
+                    let x = gameNameTxtL.indexOf(gameNameTxtL[y - 1]);
+                    if (x > -1) {
+                        gameNameTxtL.splice(x, 1);
+                        y = y + 2;
+                    }
+                }
+                gameNameTxtLN = gameNameTxtL.join('').replace(/[^\w]/gi, '');
+            } else {
+                gameNameTxtLN = gameNameTxt.value.toLowerCase().replace(/[^\w]/gi, '');
+            }
+            if (gameNameTxtLN == "") {
+                $('.queryInput.nameTxt').css("display", "inline-block");
+            } else {
+                $('.queryInput.nameTxt').css("display", "none");
+            }
+
+            gameNameZZ.innerHTML = gameNameTxtLN;
+            gameNameZZL.innerHTML = gameNameTxtLN;
+
+        }
+
+        function searchTerms(evel) {
+            if (/\w+.*(?<! ),$/m.test(document.getElementById('searchTerms' + evel).value)) {
+                $('.queryInput.searchTerms' + evel).css("display", "none");
+                fSearchTerms.innerHTML = document.getElementById('searchTerms' + evel).value;
+                fSearchTermsMod.innerHTML = document.getElementById('searchTerms' + evel).value;
+            } else {
+                if (document.getElementById('searchTerms' + evel).value == "") {
+                    fSearchTerms.innerHTML = "terraria,";
+                    fSearchTermsMod.innerHTML = "calamity mod, calamitymod,";
+                }
+            }
+        }
+
+        function typeInputLogo(evel) {
+            if (/(https:\/\/.*|http:\/\/.*)/gm.test(homePageImg.value) && evel !== "ZZ" || /(https:\/\/.*|http:\/\/.*)/gm.test(homePageImgZZ.value) && evel == "ZZ") {
+                if (evel == "ZZ") {
+                    $('.queryInput.wikiHomeImgZZ').css("display", "none");
+                    fHomePageImgZZ.innerHTML = homePageImgZZ.value;
+                } else {
+                    $('.queryInput.wikiHomeImg').css("display", "none");
+                    fHomePageImg.innerHTML = homePageImg.value;
+                    fHomePageImgMod.innerHTML = homePageImg.value;
+                }
+            }
+        }
+
+        function typeInputCustom(evel) {
+            if ($('#customLink:checked').length && evel !== "ZZ" || $('#customLinkZZ:checked').length && evel == "ZZ") {
+                if (/(https:\/\/.*|http:\/\/.*)/gm.test(document.getElementById('isCustomLink' + evel).value)) {
+                    f['customLink' + evel] = document.getElementById('isCustomLink' + evel).value;
+                    $('.queryInput.customLink' + evel).css("display", "none");
+                } else {
+                    $('.queryInput.customLink' + evel).css("display", "inline-block");
+                    f['customLink' + evel] = "https://terraria.wiki.gg/wiki/Guide:Class_setups";
+                }
+                if (/.*\S$/gm.test(document.getElementById('isCustomLinkText' + evel).value)) {
+                    f['customLinkText' + evel] = document.getElementById('isCustomLinkText' + evel).value;
+                    $('.queryInput.customLinkText' + evel).css("display", "none");
+                } else {
+                    $('.queryInput.customLinkText' + evel).css("display", "inline-block");
+                    f['customLinkText' + evel] = "Class Setup";
+                }
+
+                fCustomLink.innerHTML = f.customLink;
+                fCustomLinkZZ.innerHTML = f.customLinkZZ;
+                fCustomLinkMod.innerHTML = f.customLink;
+                fCustomLinkText.innerHTML = f.customLinkText;
+                fCustomLinkTextZZ.innerHTML = f.customLinkTextZZ;
+                fCustomLinkTextMod.innerHTML = f.customLinkText;
+            }
+        }
+
+        function copyToClipboard() {
+            var range = document.createRange();
+            range.selectNode(document.getElementById('copyEl'));
+            window.getSelection().removeAllRanges(); // clear current selection
+            window.getSelection().addRange(range); // to select text
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges(); // to deselect
+            alert('Copied to clipboard');
+        }
+    </script>
+</body>
+
+</html>

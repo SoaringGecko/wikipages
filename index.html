@@ -1,0 +1,200 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Video Game Wiki Pages</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body onload="testQuery();">
+    <p style="width:100%;display:block"><a href="https://google.com/" style="color:#ffa600">Google</a></p>
+    <p style="width:100%;display:block"><a href="template/" style="color:#ffa600">Add a wiki</a></p>
+    </br>
+    <form action="">
+        <input type="search" name="s" value="" id="searchInput" placeholder="search wikis">
+        <button type="submit" style="margin-left: -6px;">Search</button>
+    </form>
+    </br>
+    <div class="options">
+        <div class="box">
+            <desc>terraria,</desc>
+            <a href="https://terraria.wiki.gg"><img src="terrariaLogo.png" alt=""></a>
+            <p><a href="https://terraria.wiki.gg/wiki/Guide:Class_setups">Class Setup</a></p>
+            <form method="get" action="https://terraria.wiki.gg/index.php">
+                <input type="search" name="search" id="wikiSearch">
+            </form>
+            <div class="mods">
+                <p class="mods-text" onclick="toggleMods('terraria')" onselectstart="return false" ondragstart="return false">Mods <span class="terraria mods-arrow">▲</span></p>
+                <div class="mods-content" id="terraria">
+                    <div class="mods-box">
+                        <desc>calamity mod, calamitymod,</desc>
+                        <a href="https://calamitymod.wiki.gg/wiki/Calamity_Mod_Wiki"><img src="calamityLogo.png" alt=""></a>
+                        <p><a href="https://calamitymod.wiki.gg/wiki/Guide:Class_setups">Class Setup</a></p>
+                        <form method="get" action="https://calamitymod.wiki.gg/index.php">
+                            <input type="search" name="search" id="wikiSearch">
+                        </form>
+                    </div>
+                    <div class="mods-box">
+                        <desc>thorium mod, thoriummod,</desc>
+                        <a href="https://thoriummod.wiki.gg/wiki/Thorium_Mod_Wiki"><img src="thoriumLogo.png" alt=""></a>
+                        <p><a href="https://thoriummod.wiki.gg/wiki/Guide:Class_setups">Class Setup</a></p>
+                        <form method="get" action="https://thoriummod.wiki.gg/index.php">
+                            <input type="search" name="search" id="wikiSearch">
+                        </form>
+                    </div>
+                    <div class="mods-box">
+                        <desc>spirit mod, spiritmod,</desc>
+                        <a href="https://spiritmod.fandom.com/wiki/Spirit_Mod_Wiki"><img src="spiritLogo.jpg" width="486px" alt=""></a>
+                        <p><a href="https://spiritmod.fandom.com/wiki/Guide:Class_Setups">Class Setup</a></p>
+                        <form method="get" action="https://spiritmod.fandom.com/wiki/Special:Search">
+                            <input type="search" name="search" id="wikiSearch">
+                        </form>
+                    </div>
+                    <div class="mods-box">
+                        <desc>split mod, splitmod,</desc>
+                        <a href="https://splitmod.fandom.com/wiki/The_Split_Mod_Wiki"><img src="splitLogo.gif" width="486px" alt=""></a>
+                        <form method="get" action="https://splitmod.fandom.com/wiki/Special:Search">
+                            <input type="search" name="query" id="wikiSearch">
+                        </form>
+                    </div>
+                    <div class="mods-box">
+                        <desc>elements awoken, elementsawoken, mod,</desc>
+                        <a href="https://elementsawoken.fandom.com/wiki/Elements_Awoken_Mod_Wiki"><img src="elementsAwokenLogo.png" width="486px" alt=""></a>
+                        <form method="get" action="https://elementsawoken.fandom.com/wiki/Special:Search">
+                            <input type="search" name="query" id="wikiSearch">
+                        </form>
+                    </div>
+                    <div class="mods-box">
+                        <desc>shadows of abaddon, shadows ofabaddon, shadowsof abaddon, mod,</desc>
+                        <a href="https://shadowsofabaddon.miraheze.org/wiki/Shadows_of_Abaddon_Mod_Wiki"><img src="shadowsOfAbaddonLogo.png" width="486px" alt=""></a>
+                        <p><a href="https://shadowsofabaddon.miraheze.org/wiki/Guide:Class_setups">Class Setup</a></p>
+                        <form method="get" action="https://shadowsofabaddon.miraheze.org/w/index.php">
+                            <input type="search" name="search" id="wikiSearch">
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box">
+            <desc>stardew valley, stardewvalley,</desc>
+            <a href="https://stardewvalleywiki.com/Stardew_Valley_Wiki"><img src="stardewValleyLogo.png" alt=""></a>
+            <form method="get" action="https://stardewvalleywiki.com/mediawiki/index.php">
+                <input type="search" name="search" id="wikiSearch">
+            </form>
+        </div>
+
+        <div class="box">
+            <desc>starbound, star Bound,</desc>
+            <a href="https://starbounder.org/Starbound_Wiki"><img src="starboundLogo.png" width="486px" alt=""></a>
+            <form method="get" action="https://starbounder.org/mediawiki/index.php">
+                <input type="search" name="search" id="wikiSearch">
+            </form>
+        </div>
+
+        <div class="box">
+            <desc>payday, pay day, payday2, payday 2, pay day 2, pay day2,</desc>
+            <a href="https://payday.fandom.com/wiki/Payday_Wiki"><img src="payDayLogo.webp" width="486px" style="margin-top: 52px;" alt=""></a>
+            <form method="get" action="https://payday.fandom.com/wiki/Special:Search">
+                <input type="search" name="search" id="wikiSearch">
+            </form>
+        </div>
+
+        <div class="box">
+            <desc>noita,</desc>
+            <a href="https://noita.fandom.com/wiki/Noita_Wiki"><img src="noitaLogo.png" alt=""></a>
+            <form method="get" action="https://noita.fandom.com/wiki/Special:Search">
+                <input type="search" name="search" id="wikiSearch">
+            </form>
+        </div>
+
+        <div class="box">
+            <desc>deadcells, dead cells,</desc>
+            <a href="https://deadcells.fandom.com/wiki/Dead_Cells_Wiki"><img src="deadCellsLogo.webp" width="486px" alt=""></a>
+            <form method="get" action="https://deadcells.fandom.com/wiki/Special:Search">
+                <input type="search" name="search" id="wikiSearch">
+            </form>
+        </div>
+
+        <div class="box">
+            <desc>warframe, war frame,</desc>
+            <a href="https://warframe.fandom.com/wiki/WARFRAME_Wiki"><img src="warframeLogo.png" style="filter:invert(1);" width="486px" alt=""></a>
+            <form method="get" action="https://warframe.fandom.com/wiki/Special:Search">
+                <input type="search" name="search" id="wikiSearch">
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        x = "hello";
+        queryResult = 1;
+        arr = [];
+        var maxMistakes = 2;
+        const htmlElements = document.getElementsByTagName("desc");
+
+        function toggleMods(e) {
+            x = document.getElementById(e);
+            x.classList.toggle("l");
+            x = document.getElementsByClassName(e, "mods-arrow");
+            x[0].classList.toggle("l");
+        }
+
+        function testQuery() {
+            console.log(htmlElements);
+            queryResult = window.location.search.substring(3).replace(/\+/g, ' ');
+            document.getElementById("searchInput").value = queryResult;
+            if (queryResult == "") {
+                return false;
+            }
+            $(".box").css("display", "none");
+
+
+            function search(query) {
+                const regex = new RegExp(query, 'i');
+                const elements = document.getElementsByTagName('desc');
+                const results = Array.from(elements).filter(element => regex.test(element.textContent));
+                return results;
+            }
+
+            // Example usage:
+            const searchResults = search(queryResult);
+
+            searchResults.forEach(result => {
+                // Do something with each matching element
+                console.log(result.textContent);
+                console.log(result.parentElement.id);
+                if (result.parentElement.parentElement.className == "mods-content") {
+                    result.parentElement.parentElement.parentElement.parentElement.style.display = "inline-table"
+                } else {
+                    result.parentElement.style.display = "inline-table"
+                }
+            });
+
+            /*for (let i = 0; i < htmlElements.length; i++) {
+                console.log(arr); // true or false
+                if (arr) {
+                    htmlElements[i].parentElement.style.display = "block"
+                }
+            }
+            
+
+            exp = `contains(. = "${queryResult}")]`
+            var headings = document.evaluate(exp, document, null, XPathResult.ANY_TYPE);
+
+            while (thisHeading = headings.iterateNext()) {
+                console.log(thisHeading);
+                $(thisHeading).parent().css("display", "block");
+            }*/
+        }
+    </script>
+
+</body>
+
+</html>
