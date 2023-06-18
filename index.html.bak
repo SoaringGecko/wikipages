@@ -116,7 +116,7 @@
         
         <div class="box">
             <desc>DeepRockGalactic, Deep RockGalactic, DeepRockGalactic, DeepRock Galactic, Deep Rock Galactic,</desc>
-            <a href="https://deeprockgalactic.wiki.gg/wiki/Deep_Rock_Galactic_Wiki"><img src="deepRockGalacticLogo.png" alt=""></a>
+            <a href="https://deeprockgalactic.wiki.gg/wiki/Deep_Rock_Galactic_Wiki"><img src="https://static.wikia.nocookie.net/deeprockgalactic_gamepedia_en/images/9/9e/DRG_Logo_Tagline.png/revision/latest?cb=20191218195847" alt=""></a>
             <form method="get" action="https://deeprockgalactic.wiki.gg/index.php">
                 <input type="search" name="search" id="wikiSearch">
             </form>
