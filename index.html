@@ -113,7 +113,7 @@
                 <input type="search" name="search" id="wikiSearch">
             </form>
         </div>
-        
+
         <div class="box">
             <desc>DeepRockGalactic, Deep RockGalactic, DeepRockGalactic, DeepRock Galactic, Deep Rock Galactic,</desc>
             <a href="https://deeprockgalactic.wiki.gg/wiki/Deep_Rock_Galactic_Wiki"><img src="img/deepRockGalacticLogo.png" alt=""></a>
@@ -171,7 +171,6 @@
                 return results;
             }
 
-            // Example usage:
             const searchResults = search(queryResult);
 
             searchResults.forEach(result => {
@@ -179,7 +178,12 @@
                 console.log(result.textContent);
                 console.log(result.parentElement.id);
                 if (result.parentElement.parentElement.className == "mods-content") {
-                    result.parentElement.parentElement.parentElement.parentElement.style.display = "inline-table"
+                    console.log(result.parentElement);
+                    result.parentElement.classList.remove("mods-box");
+                    result.parentElement.classList.add("box");
+                    result.parentElement.style.display = "inline-table";
+                    result.parentElement.parentElement.parentElement.parentElement.after(result.parentElement)
+                        //result.parentElement.parentElement.parentElement.parentElement.style.display = "inline-table"
                 } else {
                     result.parentElement.style.display = "inline-table"
                 }
