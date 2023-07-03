@@ -72,7 +72,14 @@ img {
 
 input[type=checkbox],
 input[type=radio] {
-    filter: grayscale(1) invert(0%) sepia(19%) saturate(1626%) hue-rotate(333deg) brightness(100%) contrast(104%);
+    /* filter: grayscale(1) invert(0%) sepia(19%) saturate(1626%) hue-rotate(333deg) brightness(100%) contrast(104%); */
+    color-scheme: light;
+    filter: invert(75%) sepia(52%) saturate(844%) hue-rotate(347deg) brightness(93%) contrast(101%);
+}
+
+input[type=checkbox]:checked,
+input[type=radio]:checked {
+    filter: invert(80%) sepia(95%) saturate(493%) hue-rotate(334deg) brightness(120%) contrast(95%);
 }
 
 .options {
