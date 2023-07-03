@@ -71,6 +71,12 @@ img {
 }
 
 input[type=checkbox],
+input[type=radio],
+label {
+    cursor: pointer
+}
+
+input[type=checkbox],
 input[type=radio] {
     /* filter: grayscale(1) invert(0%) sepia(19%) saturate(1626%) hue-rotate(333deg) brightness(100%) contrast(104%); */
     color-scheme: light;
