@@ -16,7 +16,7 @@
     </br>
     <form action="">
         <input type="search" name="s" value="" id="searchInput" placeholder="search wikis">
-        <button type="submit" style="margin-left: -6px;">Search</button>
+        <button type="submit" style="margin-left: -6px;">Search</button> <label for="sepMod" onselectstart="return false" ondragstart="return false">Mods don&apos;t display separately</label><input type="checkbox" value="off" name="sepMod" id="sepMod">
     </form>
     </br>
     <div class="options">
@@ -143,6 +143,7 @@
     <script>
         x = "hello";
         queryResult = 1;
+        sepMod = "on";
         arr = [];
         var maxMistakes = 2;
         const htmlElements = document.getElementsByTagName("desc");
@@ -157,6 +158,9 @@
         function testQuery() {
             console.log(htmlElements);
             queryResult = window.location.search.substring(3).replace(/\+/g, ' ');
+            sepMod = queryResult.split(/(.*)(&sepMod=(.*))/g);
+            sepMod[3] == "off" ? document.getElementById("sepMod").checked = true : document.getElementById("sepMod").checked = false;
+            queryResult = queryResult.replace(/&sepMod=.*/g, '');
             document.getElementById("searchInput").value = queryResult;
             if (queryResult == "") {
                 return false;
@@ -178,12 +182,16 @@
                 console.log(result.textContent);
                 console.log(result.parentElement.id);
                 if (result.parentElement.parentElement.className == "mods-content") {
-                    console.log(result.parentElement);
-                    result.parentElement.classList.remove("mods-box");
-                    result.parentElement.classList.add("box");
-                    result.parentElement.style.display = "inline-table";
-                    result.parentElement.parentElement.parentElement.parentElement.after(result.parentElement)
-                        //result.parentElement.parentElement.parentElement.parentElement.style.display = "inline-table"
+                    if (sepMod[3] == "off") {
+                        result.parentElement.parentElement.parentElement.parentElement.style.display = "inline-table"
+                    } else {
+                        console.log(result.parentElement);
+                        result.parentElement.classList.remove("mods-box");
+                        result.parentElement.classList.add("box");
+                        result.parentElement.style.display = "inline-table";
+                        result.parentElement.parentElement.parentElement.parentElement.after(result.parentElement)
+                            //result.parentElement.parentElement.parentElement.parentElement.style.display = "inline-table"
+                    }
                 } else {
                     result.parentElement.style.display = "inline-table"
                 }

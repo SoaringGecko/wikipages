@@ -21,8 +21,7 @@ label {
 
 input[type=checkbox],
 input[type=radio] {
-    accent-color: #b37400;
-    accent-color: rgb(255, 193, 79)
+    filter: grayscale(1) invert(0%) sepia(19%) saturate(1626%) hue-rotate(333deg) brightness(100%) contrast(104%);
 }
 
 input[type=text] {
