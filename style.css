@@ -40,8 +40,8 @@ button:hover {
 }
 
 .mods-box>.mods>.mods-content>.mods-box {
-    outline-style: solid;
-    outline-color: #a26f29;
+    height: 228px;
+    border-bottom: solid #a26f29;
 }
 
 #wikiSearch,
