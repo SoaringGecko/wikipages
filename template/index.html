@@ -78,7 +78,7 @@
         </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"search"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"search"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"wikiSearch"</span><span class="tag">&gt;</span><span class="pln">
     </span><span class="tag">&lt;/form&gt;</span><span class="pln">
     </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mods"</span><span class="tag">&gt;</span><span class="pln">
-        </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mods-text"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">toggleMods</span><span class="pun">(</span><span class="str">'</span><span id="gameNameZZ"></span><span class="str">'</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">onselectstart</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Mods </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"terraria mods-arrow"</span><span class="tag">&gt;</span><span class="pln">▲</span><span class="tag">&lt;/span&gt;&lt;/p&gt;</span><span class="pln">
+        </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mods-text"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">toggleMods</span><span class="pun">(</span><span class="str">'</span><span id="gameNameZZ"></span><span class="str">'</span><span class="pun">)</span><span class="atv">"</span><span class="pln"> </span><span class="atn">onselectstart</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="pln"> </span><span class="atn">ondragstart</span><span class="pun">=</span><span class="atv">"</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Mods </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"<span id="gameNameZZLN">terraria</span> mods-arrow"</span><span class="tag">&gt;</span><span class="pln">▲</span><span class="tag">&lt;/span&gt;&lt;/p&gt;</span><span class="pln">
         </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mods-content"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"</span><span id="gameNameZZL"></span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
             </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"mods-box"</span><span class="tag">&gt;</span><span class="pln">
             </span><span class="tag">&lt;desc&gt;</span><span class="pln"><span id="fSearchTermsMod">calamity mod, calamitymod,</span></span><span class="tag">&lt;/desc&gt;</span><span class="pln">
@@ -119,6 +119,7 @@
         const fSearchTermsMod = document.getElementById('fSearchTermsMod');
         const gameNameZZ = document.getElementById('gameNameZZ');
         const gameNameZZL = document.getElementById('gameNameZZL');
+        const gameNameZZLN = document.getElementById('gameNameZZLN');
         const modz = document.getElementById('modz');
         const modzz = document.getElementById('modzz');
         const mods = document.getElementById('mods');
@@ -340,17 +341,20 @@
 
             gameNameZZ.innerHTML = gameNameTxtLN;
             gameNameZZL.innerHTML = gameNameTxtLN;
+            gameNameZZLN.innerHTML = gameNameTxtLN;
 
         }
 
         function searchTerms(evel) {
             if (/\w+.*(?<! ),$/m.test(document.getElementById('searchTerms' + evel).value)) {
                 $('.queryInput.searchTerms' + evel).css("display", "none");
-                fSearchTerms.innerHTML = document.getElementById('searchTerms' + evel).value;
-                fSearchTermsMod.innerHTML = document.getElementById('searchTerms' + evel).value;
+                eval('fSearchTerms' + evel).innerHTML = document.getElementById('searchTerms' + evel).value;
+                if ('fSearchTermsMod' + evel !== 'fSearchTermsModZZ') {
+                    fSearchTermsMod.innerHTML = document.getElementById('searchTerms' + evel).value;
+                }
             } else {
                 if (document.getElementById('searchTerms' + evel).value == "") {
-                    fSearchTerms.innerHTML = "terraria,";
+                    eval('fSearchTerms' + evel).innerHTML = "terraria,";
                     fSearchTermsMod.innerHTML = "calamity mod, calamitymod,";
                 }
             }

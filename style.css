@@ -39,6 +39,11 @@ button:hover {
     outline-color: #a26f29
 }
 
+.mods-box>.mods>.mods-content>.mods-box {
+    outline-style: solid;
+    outline-color: #a26f29;
+}
+
 #wikiSearch,
 .options {
     display: -webkit-inline-box;

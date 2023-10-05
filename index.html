@@ -37,6 +37,18 @@
                         <form method="get" action="https://calamitymod.wiki.gg/index.php">
                             <input type="search" name="search" id="wikiSearch">
                         </form>
+                        <div class="mods">
+                            <p class="mods-text" onclick="toggleMods('calamityMod')" onselectstart="return false" ondragstart="return false">Mods <span class="calamityMod mods-arrow">▲</span></p>
+                            <div class="mods-content" id="calamityMod">
+                                <div class="mods-box">
+                                    <desc>Infernum mod, InfernumMod,</desc>
+                                    <a href="https://infernummod.wiki.gg/wiki/Infernum_Mod_Wiki"><img src="img/infernumLogo.png" alt=""></a>
+                                    <form method="get" action="https://infernummod.wiki.gg/index.php">
+                                        <input type="search" name="search" id="wikiSearch">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="mods-box">
                         <desc>thorium mod, thoriummod,</desc>
@@ -206,6 +218,19 @@
                         result.parentElement.classList.remove("mods-box");
                         result.parentElement.classList.add("box");
                         result.parentElement.style.display = "inline-table";
+                        console.log(result.parentElement.parentElement.childElementCount == 1);
+                        if (result.parentElement.parentElement.childElementCount == 1) {
+                            result.parentElement.parentElement.parentElement.style.display = "none";
+                        }
+                        if (result.parentElement.parentElement.parentElement.parentElement.className == 'mods-box') {
+                            result.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.after(result.parentElement);
+                            for (let lnx = 0; lnx < document.getElementsByClassName('mods-content').length; lnx++) {
+                                if (document.getElementsByClassName('mods-content')[lnx].innerHTML.match(/(?<!\S)\s*(?!\S)/y)) {
+                                    document.getElementsByClassName('mods-content')[lnx].parentElement.style.display = "none"
+
+                                }
+                            }
+                        }
                         result.parentElement.parentElement.parentElement.parentElement.after(result.parentElement)
                             //result.parentElement.parentElement.parentElement.parentElement.style.display = "inline-table"
                     }
